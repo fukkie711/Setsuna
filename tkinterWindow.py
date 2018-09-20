@@ -5,7 +5,7 @@ def foo():
     print('Hello, %s!' % t.get())
 
 root = Tk()
-root.title('My First Test267655 App')
+root.title('My First App')
 frame1 = ttk.Frame(root)
 label1 = ttk.Label(frame1, text='Your name:')
 
