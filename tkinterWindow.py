@@ -18,6 +18,9 @@ Static2.place(x=50, y=100)
 
 #ボタン
 Button = tkinter.Button(text=u'参照1')
-Button.place(x=100, y=50)
+Button.place(x=300, y=50)
+
+Button = tkinter.Button(text=u'参照2')
+Button.place(x=300, y=100)
 
 root.mainloop()
