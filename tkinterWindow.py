@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-change
-
-print('I am Shinchi!!!!')
-=======
->>>>>>> f035f4d073ce7d689ab6cfa9cced411dc38e5346
 # ここでは画面だけ作成したい。
 # この画面から、各処理を読み出す形にしたい。
 import sys
@@ -26,6 +18,6 @@ Static2.place(x=50, y=100)
 
 #ボタン
 Button = tkinter.Button(text=u'参照1')
-Button.place(x=100, y=50) 
+Button.place(x=100, y=50)
 
 root.mainloop()
