@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from tkinter import *
 from tkinter import ttk
 
@@ -5,7 +6,7 @@ def foo():
     print('Hello, %s!' % t.get())
 
 root = Tk()
-root.title('My First Test2 App')
+root.title('My First Test26 App')
 frame1 = ttk.Frame(root)
 label1 = ttk.Label(frame1, text='Your name:')
 
@@ -22,4 +23,14 @@ button1.grid(row=2,column=2,sticky=W)
 for child in frame1.winfo_children():
     child.grid_configure(padx=5, pady=5)
 
+=======
+# ここでは画面だけ作成したい。
+# この画面から、各処理を読み出す形にしたい。
+import tkinter
+from tkinter import font
+
+root = tkinter.Tk()
+root.title("tyuusyutu")
+root.geometry("500x400+400+200")
+>>>>>>> bc8d37f0c000599ccd49056bf570ec5570fd5900
 root.mainloop()
