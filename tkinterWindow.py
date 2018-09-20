@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 change
 
-print('I am Shinchi!!!')
+print('I am Shinchi!!!!')
 =======
 # ここでは画面だけ作成したい。
 # この画面から、各処理を読み出す形にしたい。
