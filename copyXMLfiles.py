@@ -11,3 +11,7 @@
 # 必要な情報のみを抜き出す
 # カンマ区切りにして.csv化
 # 指定したファイル名で上書き保存
+
+FOLDER = r'C:\Users\T15015'
+import subprocess
+subprocess.Popen(['explorer', FOLDER])
