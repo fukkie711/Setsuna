@@ -15,7 +15,7 @@ import glob # globモジュール読み込み
 import os # osモジュール読み込み
 import codecs # codecsモジュールの読み込み
 
-# from2 = 'r' + target # 接続前に有効化
+#sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
 drive = r"C:\Users\T15015\PycharmProjects\PatentApp"
 print(drive)
 save = r"C:\Users\T15015\PycharmProjects\save"
@@ -24,16 +24,21 @@ print("operation_start\n")
 
 os.chdir(drive) # カレントディレクトリを走査対象に移動
 path_list = glob.glob('**/*.xml', recursive=True) # 拡張子.xmlを網羅,リストに格納
+
 for x in path_list: # 拡張子.xml格納リストを網羅表示
-    fromdir = drive + '\\' + x
+    fromdir = drive + '\\' + x # 操作対象絶対パス
     # ↑ driveがディレクトリ、xがファイル名 ↑
-    print(fromdir) # カレントディレクトリと接続して表示(絶対パス)
-    # open(from2 + '\\' + x, 'r', 'utf_8')
-    #file = open(fromdir, 'r', 'utf_8')
-    #file.write
-    fin = codecs.open(fromdir, 'r', 'euc_jp')
-    fout = codecs.open(fromdir, 'a', 'utf_8')
-    #print(%d"変換" fromdir)
+    print(fromdir) # ↑の表示(確認)
+    y = os.path.basename(fromdir) # 操作対象のファイル名取得
+    todir = save + '\\' + y # 保存先ディレクトリの絶対パス
+    print(todir) # の表示(確認)
+    # ↓ 変換&新規出力
+    ff = codecs.open(fromdir, 'r', encoding='utf-8') # 元ファイルを読み込み
+    fout_utf = open(todir, 'w', encoding='utf-8') # UTFでの新ファイルを新規作成
+    for row in ff: # 元ファイルから１行ずつ読みだして
+        fout_utf.write(row) # コピー先新ファイルに書き出す
+    ff.close() # ffを閉じる
+    fout_utf.close() # fout_utfを閉じる
 print("end")
 # * + * + * + * + * + * + * + * + * + * +
 
