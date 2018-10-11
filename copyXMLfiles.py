@@ -17,6 +17,7 @@ import codecs # codecsモジュールの読み込み
 # from2 = 'r' + target # 接続前に有効化
 from2 = r"C:\Users\T15015\PycharmProjects" # 仮のパス、接続前に削除
 
+print("operation_start")
 os.chdir(from2) # カレントディレクトリを走査対象に移動
 path_list = glob.glob('**/*.xml', recursive=True) # 拡張子.xmlを網羅,リストに格納
 for x in path_list: # 拡張子.xml格納リストを網羅表示
@@ -27,11 +28,9 @@ for x in path_list: # 拡張子.xml格納リストを網羅表示
     #fin.close()
     #fout_utf.close()
     print(from2 + '\\' + x) # カレントディレクトリと接続して表示
-    fin = codecs.open(x, 'r', 'euc_jp')
-    fout = codecs.open(x +'2', 'w', 'utf-8')
-
-    for line in fin:
-        fout.write(line)
+    ed_str = open(x, 'r', encoding='utf_8')
+    ed_str.close()
+print("end")
 # * + * + * + * + * + * + * + * + * + * +
 
 # STEP-2-
