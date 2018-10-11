@@ -16,16 +16,24 @@ import os # osモジュール読み込み
 import codecs # codecsモジュールの読み込み
 
 # from2 = 'r' + target # 接続前に有効化
-from2 = r"C:\Users\T15015\PycharmProjects" # 仮のパス、接続前に削除
+drive = r"C:\Users\T15015\PycharmProjects\PatentApp"
+print(drive)
+save = r"C:\Users\T15015\PycharmProjects\save"
+print(save)
+print("operation_start\n")
 
-print("operation_start")
-os.chdir(from2) # カレントディレクトリを走査対象に移動
+os.chdir(drive) # カレントディレクトリを走査対象に移動
 path_list = glob.glob('**/*.xml', recursive=True) # 拡張子.xmlを網羅,リストに格納
 for x in path_list: # 拡張子.xml格納リストを網羅表示
-    print(from2 + '\\' + x) # カレントディレクトリと接続して表示
-    # ↑ from2がディレクトリ、xがファイル名 ↑
-    fin = codecs.open(x, 'r', 'euc_jp')
-    fout = codecs.open(x, 'w', 'utf_8')
+    fromdir = drive + '\\' + x
+    # ↑ driveがディレクトリ、xがファイル名 ↑
+    print(fromdir) # カレントディレクトリと接続して表示(絶対パス)
+    # open(from2 + '\\' + x, 'r', 'utf_8')
+    #file = open(fromdir, 'r', 'utf_8')
+    #file.write
+    fin = codecs.open(fromdir, 'r', 'euc_jp')
+    fout = codecs.open(fromdir, 'a', 'utf_8')
+    #print(%d"変換" fromdir)
 print("end")
 # * + * + * + * + * + * + * + * + * + * +
 
