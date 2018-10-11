@@ -10,6 +10,7 @@
 #1-3 参照先(変数save)にペースト
 
 # coding: utf-8
+import sys # sysモジュール読み込み
 import glob # globモジュール読み込み
 import os # osモジュール読み込み
 import codecs # codecsモジュールの読み込み
@@ -21,15 +22,10 @@ print("operation_start")
 os.chdir(from2) # カレントディレクトリを走査対象に移動
 path_list = glob.glob('**/*.xml', recursive=True) # 拡張子.xmlを網羅,リストに格納
 for x in path_list: # 拡張子.xml格納リストを網羅表示
-    #fin = codecs.open(x, 'r', 'shift_jis')
-    #fout_utf = codecs.open(x, 'w', 'utf-8')
-    #for row in fin:
-    #fout_utf.write(row)
-    #fin.close()
-    #fout_utf.close()
     print(from2 + '\\' + x) # カレントディレクトリと接続して表示
-    ed_str = open(x, 'r', encoding='utf_8')
-    ed_str.close()
+    # ↑ from2がディレクトリ、xがファイル名 ↑
+    fin = codecs.open(x, 'r', 'euc_jp')
+    fout = codecs.open(x, 'w', 'utf_8')
 print("end")
 # * + * + * + * + * + * + * + * + * + * +
 
