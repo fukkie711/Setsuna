@@ -9,7 +9,7 @@
 #1-2 *** UTF-8への変換 ***
 #1-3 参照先(変数save)にペースト
 
-# coding: utf-8
+
 import sys # sysモジュール読み込み
 import glob # globモジュール読み込み
 import os # osモジュール読み込み
@@ -27,13 +27,12 @@ path_list = glob.glob('**/*.xml', recursive=True) # 拡張子.xmlを網羅,リ�
 
 for x in path_list: # 拡張子.xml格納リストを網羅表示
     fromdir = drive + '\\' + x # 操作対象絶対パス
-    # ↑ driveがディレクトリ、xがファイル名 ↑
     print(fromdir) # ↑の表示(確認)
     y = os.path.basename(fromdir) # 操作対象のファイル名取得
     todir = save + '\\' + y # 保存先ディレクトリの絶対パス
-    print(todir) # の表示(確認)
+    print(todir) # ↑の表示(確認)
     # ↓ 変換&新規出力
-    ff = codecs.open(fromdir, 'r', encoding='utf-8') # 元ファイルを読み込み
+    ff = codecs.open(fromdir, 'r', encoding='shift-jis') # 元ファイルを読み込み
     fout_utf = open(todir, 'w', encoding='utf-8') # UTFでの新ファイルを新規作成
     for row in ff: # 元ファイルから１行ずつ読みだして
         fout_utf.write(row) # コピー先新ファイルに書き出す
