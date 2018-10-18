@@ -4,23 +4,26 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
 from tkinter import messagebox
+from copyXMLfiles import translate
 
 # 参照ボタンのイベント
 # button1クリック時の処理
 def button1_clicked():
     fTyp = [("","*")]
-    iDir = os.path.abspath(os.path.dirname(__file__))
-    filepath = filedialog.askopenfilename(filetypes = fTyp,initialdir = iDir)
-    file1.set(filepath)
+    #iDir = os.path.abspath(os.path.dirname(__file__))
+    #file1path1 = filedialog.askdireatory()
+    #filepath1 = filedialog.askdirectory(filetypes = fTyp,initialdir = iDir)
+    filepath1 = tkinter.filedialog.askdirectory()
+    file1.set(filepath1)
 
 # button3クリック時の処理
 def button3_clicked():
     fTyp = [("","*")]
     iDir = os.path.abspath(os.path.dirname(__file__))
-    filepath = filedialog.askopenfilename(filetypes = fTyp,initialdir = iDir)
-    file2.set(filepath)
+    filepath2 = filedialog.askdirectory(filetypes = fTyp,initialdir = iDir)
+    file2.set(filepath2)
 
-# button4クリック時の処理
+# button4クリック時の処理（終了ボタン）
 def button4_clicked():
     tkmsg.askquestion(message = u'本当に終了しますか？ by Shin')
 
@@ -30,10 +33,11 @@ def button4_clicked():
 
     #}
 
-# button2クリック時の処理
+# button2クリック時の処理 (開始ボタン)
 def button2_clicked():
     messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + file1.get()
      + u'\n\n参照ファイルは↓↓\n' + file2.get())
+    translate(filepath1, filepath2)
 
 if __name__ == '__main__':
     # rootの作成
