@@ -8,6 +8,7 @@
 #1-1 参照ドライブ(変数target)下の拡張子.xmlをコピー
 #1-2 *** UTF-8への変換 ***
 #1-3 参照先(変数save)にペースト
+#1-4 tkinterWindow.pyとの接続
 
 
 import sys # sysモジュール読み込み
