@@ -45,8 +45,8 @@ def translate(x,y):
             fout_utf.write(row) # コピー先新ファイルに書き出す
             ff.close() # ffを閉じる
             fout_utf.close() # fout_utfを閉じる
-            count = count + 1
-            print(str(count) + "/" + str(list_max) + "変換終了")
+        count = count + 1
+        print(str(count) + "/" + str(list_max) + "変換終了")
     print("\n")
     print("-*-*-*-*-*-operation_end-*-*-*-*-*-")
 # * + * + * + * + * + * + * + * + * + * +
