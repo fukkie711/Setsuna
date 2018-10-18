@@ -1,4 +1,5 @@
-import os,sys
+import os,sys,tkinter
+import tkinter.messagebox as tkmsg
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
@@ -12,14 +13,32 @@ def button1_clicked():
     filepath = filedialog.askopenfilename(filetypes = fTyp,initialdir = iDir)
     file1.set(filepath)
 
+# button3クリック時の処理
+def button3_clicked():
+    fTyp = [("","*")]
+    iDir = os.path.abspath(os.path.dirname(__file__))
+    filepath = filedialog.askopenfilename(filetypes = fTyp,initialdir = iDir)
+    file2.set(filepath)
+
+# button4クリック時の処理
+def button4_clicked():
+    tkmsg.askquestion(message = u'本当に終了しますか？ by Shin')
+
+    #if(result == messageboxresult.yes){
+     # command = guit
+    #}else if(result == messageboxresult.no){
+
+    #}
+
 # button2クリック時の処理
 def button2_clicked():
-    messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + file1.get())
+    messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + file1.get()
+     + u'\n\n参照ファイルは↓↓\n' + file2.get())
 
 if __name__ == '__main__':
     # rootの作成
     root = Tk()
-    root.title('抽出')
+    root.title('抽出プログラム')
     root.geometry("550x400+400+200")
 
     # Frame1の作成
@@ -30,28 +49,46 @@ if __name__ == '__main__':
     button1 = ttk.Button(root, text=u'参照', command=button1_clicked)
     button1.grid(row=0, column=3)
 
+    # 参照2ボタンの作成
+    button4 = ttk.Button(root, text=u'参照2', command=button3_clicked)
+    button4.place(x=446, y=52)
+
     # ラベルの作成
     # 「ファイル」ラベルの作成
     s = StringVar()
-    s.set('ファイル>>')
+    s.set('< ファイル >')
+
     label1 = ttk.Label(frame1, textvariable=s)
     label1.grid(row=0, column=0)
 
     # 参照ファイルパス表示ラベルの作成
     file1 = StringVar()
-    file1_entry = ttk.Entry(frame1, textvariable=file1, width=50)
-    file1_entry.grid(row=0, column=2)
+    file1_entry = ttk.Entry(frame1, textvariable=file1, width=60)
+    file1_entry.grid()
+
+    # 参照ファイルパス表示ラベル2の作成
+    file2 = StringVar()
+    file2_entry = ttk.Entry(frame1, textvariable=file2, width=60)
+    file2_entry.grid()
 
     # Frame2の作成
     frame2 = ttk.Frame(root, padding=(0,5))
     frame2.grid(row=1)
 
-    # Startボタンの作成
-    button2 = ttk.Button(frame2, text='Start', command=button2_clicked)
+    # 開始ボタンの作成
+    button2 = ttk.Button(frame2, text='開始', command=button2_clicked)
     button2.pack(side=LEFT)
 
-    # Cancelボタンの作成
-    button3 = ttk.Button(frame2, text='Cancel', command=quit)
+    # 一時停止ボタンの作成
+    button5 = ttk.Button(frame2, text='一時停止')
+    button5.pack(side=LEFT)
+
+    # キャンセルボタンの作成
+    button6 = ttk.Button(frame2, text='キャンセル')
+    button6.pack(side=LEFT)
+
+    # 終了ボタンの作成
+    button3 = ttk.Button(frame2, text='終了', command=button4_clicked)
     button3.pack(side=LEFT)
 
     root.mainloop()
