@@ -8,6 +8,7 @@ from copyXMLfiles import translate
 
 # 参照ボタンのイベント
 # button1クリック時の処理
+filepath1 = ""
 def button1_clicked():
     fTyp = [("","*")]
     #iDir = os.path.abspath(os.path.dirname(__file__))
@@ -15,13 +16,16 @@ def button1_clicked():
     #filepath1 = filedialog.askdirectory(filetypes = fTyp,initialdir = iDir)
     filepath1 = tkinter.filedialog.askdirectory()
     file1.set(filepath1)
+    return filepath1
 
+filepath2 = ""
 # button3クリック時の処理
 def button3_clicked():
     fTyp = [("","*")]
-    iDir = os.path.abspath(os.path.dirname(__file__))
-    filepath2 = filedialog.askdirectory(filetypes = fTyp,initialdir = iDir)
+    #iDir = os.path.abspath(os.path.dirname(__file__))
+    filepath2 = tkinter.filedialog.askdirectory()
     file2.set(filepath2)
+    return filepath2
 
 # button4クリック時の処理（終了ボタン）
 def button4_clicked():
@@ -36,7 +40,9 @@ def button4_clicked():
 # button2クリック時の処理 (開始ボタン)
 def button2_clicked():
     messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + file1.get()
-     + u'\n\n参照ファイルは↓↓\n' + file2.get())
+    + u'\n\n参照ファイルは↓↓\n' + file2.get())
+    #filepath1 = r""" + filepath1 + """
+    #filepath2 = r""" + filepath2 + """
     translate(filepath1, filepath2)
 
 if __name__ == '__main__':
