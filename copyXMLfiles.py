@@ -18,10 +18,10 @@ import codecs # codecsモジュールの読み込み
 def translate(x,y):
 
     # drive = r"C:\Users\T15015\PycharmProjects\test_area\drive"
-    drive = r""" + x + """
+    drive = x
     print(drive)
     # save = r"C:\Users\T15015\PycharmProjects\test_area\save"
-    save = r""" + y + """
+    save = y
     print(save + "\n")
 
     os.chdir(drive) # カレントディレクトリを走査対象に移動
