@@ -9,17 +9,18 @@
 #1-2 *** UTF-8への変換 ***
 #1-3 参照先(変数save)にペースト
 #1-4 tkinterWindow.pyとの接続
-
-
 import sys # sysモジュール読み込み
 import glob # globモジュール読み込み
 import os # osモジュール読み込み
 import codecs # codecsモジュールの読み込み
+# sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
 
-#sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
-drive = r"C:\Users\T15015\PycharmProjects\test_area\drive"
+def translate(x,y):
+# drive = r"C:\Users\T15015\PycharmProjects\test_area\drive"
+drive = x
 print(drive)
-save = r"C:\Users\T15015\PycharmProjects\test_area\save"
+# save = r"C:\Users\T15015\PycharmProjects\test_area\save"
+save = y
 print(save + "\n")
 
 os.chdir(drive) # カレントディレクトリを走査対象に移動
