@@ -43,8 +43,8 @@ def translate(x,y):
         fout_utf = open(todir, 'w', encoding='utf-8') # UTFでの新ファイルを新規作成
         for row in ff: # 元ファイルから１行ずつ読みだして
             fout_utf.write(row) # コピー先新ファイルに書き出す
-            ff.close() # ffを閉じる
-            fout_utf.close() # fout_utfを閉じる
+        ff.close() # ffを閉じる
+        fout_utf.close() # fout_utfを閉じる
         count = count + 1
         print(str(count) + "/" + str(list_max) + "変換終了")
 
