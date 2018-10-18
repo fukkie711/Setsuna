@@ -17,11 +17,11 @@ import codecs # codecsモジュールの読み込み
 
 def translate(x,y):
 
-    # drive = r"C:\Users\T15015\PycharmProjects\test_area\drive"
-    drive = "r"" + x + """
+    #drive = r"C:\Users\T15015\PycharmProjects\test_area\drive"
+    drive = x
     print(drive)
-    # save = r"C:\Users\T15015\PycharmProjects\test_area\save"
-    save = "r"" + y + """
+    #save = r"C:\Users\T15015\PycharmProjects\test_area\save"
+    save = y
     print(save + "\n")
 
     os.chdir(drive) # カレントディレクトリを走査対象に移動
@@ -45,10 +45,11 @@ def translate(x,y):
             fout_utf.write(row) # コピー先新ファイルに書き出す
             ff.close() # ffを閉じる
             fout_utf.close() # fout_utfを閉じる
-        count = count + 1
-        print(str(count) + "/" + str(list_max) + "変換終了")
+            count = count + 1
+            print(str(count) + "/" + str(list_max) + "変換終了")
 
     print("\n-*-*-*-*-*-operation_end-*-*-*-*-*-")
+
 # * + * + * + * + * + * + * + * + * + * +
 
 # STEP-2-
