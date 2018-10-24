@@ -16,3 +16,4 @@ for x in list_max:
     print(now)
     count = count + 1
     print(str(count) + "/" + str(max_max) + "変換終了")
+    print(str((count / max_max)*100) + "%完了")

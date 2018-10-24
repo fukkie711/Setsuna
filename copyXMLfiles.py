@@ -1,14 +1,11 @@
-# 参照元フォルダ（下の階層も含む）からXMLファイルを探し
-# そのXMLファイルの文字コードをUTF-８に変換しながら
-# 保存先フォルダにコピー
-
-# * + * + * + * + * + * + * + * + * + * +
-
 # STEP-1-
 #1-1 参照ドライブ(変数target)下の拡張子.xmlをコピー
 #1-2 *** UTF-8への変換 ***
 #1-3 参照先(変数save)にペースト
 #1-4 tkinterWindow.pyとの接続
+
+# * + * + * + * + * + * + * + * + * + * +
+
 import sys # sysモジュール読み込み
 import glob # globモジュール読み込み
 import os # osモジュール読み込み
@@ -43,10 +40,12 @@ def translate(x,y):
         fout_utf = open(todir, 'w', encoding='utf-8') # UTFでの新ファイルを新規作成
         for row in ff: # 元ファイルから１行ずつ読みだして
             fout_utf.write(row) # コピー先新ファイルに書き出す
+
         ff.close() # ffを閉じる
         fout_utf.close() # fout_utfを閉じる
         count = count + 1
-        print(str(count) + "/" + str(list_max) + "変換終了")
+        # print(str(count) + "/" + str(list_max) + "変換終了") # 残数表示
+        print(str((count / list_max)*100) + "%完了") # 百分率表示
 
     print("\n-*-*-*-*-*-operation_end-*-*-*-*-*-")
 # * + * + * + * + * + * + * + * + * + * +
