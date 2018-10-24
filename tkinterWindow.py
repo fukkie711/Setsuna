@@ -9,6 +9,7 @@ from copyXMLfiles import translate
 # 参照ボタンのイベント
 # button1クリック時の処理
 filepath1 = ""
+filepath2 = ""
 def button1_clicked():
     fTyp = [("","*")]
     #iDir = os.path.abspath(os.path.dirname(__file__))
@@ -18,7 +19,6 @@ def button1_clicked():
     file1.set(filepath1)
     return filepath1
 
-filepath2 = ""
 # button3クリック時の処理
 def button3_clicked():
     fTyp = [("","*")]
