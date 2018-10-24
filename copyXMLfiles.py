@@ -39,7 +39,7 @@ def translate(x,y):
         todir = save + '\\' + y # 保存先ディレクトリの絶対パス
         print("保存先：：" + todir) # ↑の表示(確認)
         # ↓ 変換&新規出力
-        ff = codecs.open(fromdir, 'r', encoding='shift-jis') # 元ファイルを読み込み
+        ff = codecs.open(fromdir, 'r', encoding='euc-jp') # 元ファイルを読み込み
         fout_utf = open(todir, 'w', encoding='utf-8') # UTFでの新ファイルを新規作成
         for row in ff: # 元ファイルから１行ずつ読みだして
             fout_utf.write(row) # コピー先新ファイルに書き出す
