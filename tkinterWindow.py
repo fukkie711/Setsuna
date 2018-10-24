@@ -1,57 +1,52 @@
-import os,sys,tkinter
-import tkinter.messagebox as tkmsg
-from tkinter import *
-from tkinter import ttk
-from tkinter import filedialog
-from tkinter import messagebox
-from copyXMLfiles import translate
+import os,sys,tkinter # os,sys,tkinterモジュール読み込み
+from tkinter import * # *モジュール読み
+from tkinter import ttk # ttkモジュール読み込み
+from tkinter import filedialog # filedialogモジュール読み込み
+from tkinter import messagebox # messageboxモジュール読み込み
+from copyXMLfiles import translate # translate関数を読み込み
 
 # 参照ボタンのイベント
 # button1クリック時の処理
-filepath1 = ""
-filepath2 = ""
-def button1_clicked():
-    fTyp = [("","*")]
-    #iDir = os.path.abspath(os.path.dirname(__file__))
-    #file1path1 = filedialog.askdireatory()
-    #filepath1 = filedialog.askdirectory(filetypes = fTyp,initialdir = iDir)
-    filepath1 = tkinter.filedialog.askdirectory()
-    file1.set(filepath1)
-    return filepath1
+filepath1 = "" # filepath1変数の初期化
+filepath2 = "" # filepath2変数の初期化
+def button1_clicked(): # button1_clickedの関数を定義
+    fTyp = [("","*")] # 表示オプション
+    filepath1 = tkinter.filedialog.askdirectory() # directoryを選択する
+    file1.set(filepath1)# filepath1をsetに変換する
+    return filepath1# filepath1に返す
 
 # button3クリック時の処理
-def button3_clicked():
-    fTyp = [("","*")]
-    #iDir = os.path.abspath(os.path.dirname(__file__))
-    filepath2 = tkinter.filedialog.askdirectory()
-    file2.set(filepath2)
-    return filepath2
+def button3_clicked(): # button3_clickedの関数を定義
+    fTyp = [("","*")] #表示オプション
+    filepath2 = tkinter.filedialog.askdirectory() # directoryを選択する
+    file2.set(filepath2) # filepath2をsetに変換する
+    return filepath2 # filepath2に返す
 
 # button4クリック時の処理（終了ボタン）
-def button4_clicked():
-    tkmsg.askquestion(message = u'本当に終了しますか？ by Shin')
-
-    #if(result == messageboxresult.yes){
-     # command = guit
-    #}else if(result == messageboxresult.no){
-
-    #}
+def button4_clicked(): # button4_clickedの関数を定義
+    tkmsg.askquestion(message = u'本当に終了しますか？ by Shin') # 確認ダイアログ
 
 # button2クリック時の処理 (開始ボタン)
-def button2_clicked():
+def button2_clicked(): # button2_clickedの関数を定義
     sss = file1.get() # 参照先ディレクトリの絶対パス
     fff = file2.get() # 保存先ディレクトリの絶対パス
     messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + sss
     + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
     sss = r"" + sss + "" # row文字列にして代入
     fff = r"" + fff + "" # row文字列にして代入
+<<<<<<< HEAD
     translate(sss, fff) # copyXMLのtlanslate関数を実行
 
 if __name__ == '__main__':
+=======
+    translate(sss, fff) # copyXMLfileのtranslate関数を実行
+
+if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
+>>>>>>> 0bd918819aea1a3689a9358d4aad1f368015d6ac
     # rootの作成
-    root = Tk()
-    root.title('抽出プログラム')
-    root.geometry("550x400+400+200")
+    root = Tk() # 実行内容の処理の開始位置
+    root.title('抽出プログラム') # ウインドウのタイトル
+    root.geometry("550x400+400+200") # ウインドウのサイズ
 
     # Frame1の作成
     frame1 = ttk.Frame(root, padding=10)
@@ -103,4 +98,4 @@ if __name__ == '__main__':
     button3 = ttk.Button(frame2, text='終了', command=button4_clicked)
     button3.pack(side=LEFT)
 
-    root.mainloop()
+    root.mainloop() # 実行内容の処理の終了位置
