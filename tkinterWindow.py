@@ -42,12 +42,10 @@ def button2_clicked():
     sss = file1.get() # 参照先ディレクトリの絶対パス
     fff = file2.get() # 保存先ディレクトリの絶対パス
     messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + sss
-    + u'\n\n参照ファイルは↓↓\n' + fff)
-    #filepath1 = r""" + filepath1 + """
-    #filepath2 = r""" + filepath2 + """
-    sss = r"" + sss + ""
-    fff = r"" + fff + ""
-    translate(sss, fff)
+    + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
+    sss = r"" + sss + "" # row文字列にして代入
+    fff = r"" + fff + "" # row文字列にして代入
+    translate(sss, fff) # copyXMLのtlanslate関数を実行
 
 if __name__ == '__main__':
     # rootの作成
