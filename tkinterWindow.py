@@ -39,11 +39,15 @@ def button4_clicked():
 
 # button2クリック時の処理 (開始ボタン)
 def button2_clicked():
-    messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + file1.get()
-    + u'\n\n参照ファイルは↓↓\n' + file2.get())
+    sss = file1.get() # 参照先ディレクトリの絶対パス
+    fff = file2.get() # 保存先ディレクトリの絶対パス
+    messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + sss
+    + u'\n\n参照ファイルは↓↓\n' + fff)
     #filepath1 = r""" + filepath1 + """
     #filepath2 = r""" + filepath2 + """
-    translate(filepath1, filepath2)
+    sss = r"" + sss + ""
+    fff = r"" + fff + ""
+    translate(sss, fff)
 
 if __name__ == '__main__':
     # rootの作成

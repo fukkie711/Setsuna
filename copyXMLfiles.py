@@ -18,10 +18,10 @@ import codecs # codecsモジュールの読み込み
 def translate(x,y):
 
     # drive = r"C:\Users\T15015\PycharmProjects\test_area\drive"
-    drive = r""" + x + """
+    drive = x
     print(drive)
     # save = r"C:\Users\T15015\PycharmProjects\test_area\save"
-    save = r""" + y + """
+    save = y
     print(save + "\n")
 
     os.chdir(drive) # カレントディレクトリを走査対象に移動
@@ -39,12 +39,12 @@ def translate(x,y):
         todir = save + '\\' + y # 保存先ディレクトリの絶対パス
         print("保存先：：" + todir) # ↑の表示(確認)
         # ↓ 変換&新規出力
-        ff = codecs.open(fromdir, 'r', encoding='shift-jis') # 元ファイルを読み込み
+        ff = codecs.open(fromdir, 'r', encoding='euc-jp') # 元ファイルを読み込み
         fout_utf = open(todir, 'w', encoding='utf-8') # UTFでの新ファイルを新規作成
         for row in ff: # 元ファイルから１行ずつ読みだして
             fout_utf.write(row) # コピー先新ファイルに書き出す
-            ff.close() # ffを閉じる
-            fout_utf.close() # fout_utfを閉じる
+        ff.close() # ffを閉じる
+        fout_utf.close() # fout_utfを閉じる
         count = count + 1
         print(str(count) + "/" + str(list_max) + "変換終了")
 
