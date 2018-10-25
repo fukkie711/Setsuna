@@ -26,8 +26,8 @@ def translate(x,y): # tlanslate関数の宣言
 
     list_max = len(path_list) # 変換するxmlファイルの総数を取得
     count = 0 # 変換終了変数countの初期化
-    print("残り" + str(list_max))
-    print("-*-*-*-*-*-operation_start-*-*-*-*-*-\n")
+    print("機能α[変換]残り" + str(list_max))
+    print("-*-*-*-*-*-operation-α-_start-*-*-*-*-*-\n")
 
     for x in path_list: # 拡張子.xml格納リストを網羅表示
         fromdir = drive + '\\' + x # 変数fromdir::操作対象絶対パス
