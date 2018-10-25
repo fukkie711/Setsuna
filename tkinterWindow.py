@@ -1,4 +1,4 @@
-import os,sys,tkinter # os,sys,tkinterモジュール読み込み
+import os,sys,tkinter,time # os,sys,tkinterモジュール読み込み
 from tkinter import * # *モジュール読み
 from tkinter import ttk # ttkモジュール読み込み
 from tkinter import filedialog # filedialogモジュール読み込み
@@ -44,53 +44,65 @@ if __name__ == '__main__': # 該当のスクリプトファイルがコマンド
     root.geometry("550x400+400+200") # ウインドウのサイズ
 
     # Frame1の作成
-    frame1 = ttk.Frame(root, padding=10)
-    frame1.grid()
+    frame1 = ttk.Frame(root, padding=10) # windowの枠組み
+    frame1.grid() # 枠組みの配置
 
     # 参照ボタンの作成
-    button1 = ttk.Button(root, text=u'参照', command=button1_clicked)
-    button1.grid(row=0, column=3)
+    button1 = ttk.Button(root, text=u'参照', command=button1_clicked) # ボタン処理
+    button1.grid(row=0, column=3) # ボタンの配置
+
+    frame3 = ttk.Frame(root, padding=10) # windowの枠組み
+    frame3.grid() # 枠組みの配置
 
     # 参照2ボタンの作成
-    button4 = ttk.Button(root, text=u'参照2', command=button3_clicked)
-    button4.place(x=446, y=52)
+    button4 = ttk.Button(root, text=u'保存', command=button3_clicked) # ボタン処理
+    button4.grid(row=1, column=3) # ボタンの配置
 
     # ラベルの作成
     # 「ファイル」ラベルの作成
-    s = StringVar()
-    s.set('< ファイル >')
+    s = StringVar() # StringVarの作成
+    s.set('< 参照先 >') # ラベルに値をセット
 
-    label1 = ttk.Label(frame1, textvariable=s)
-    label1.grid(row=0, column=0)
+    label1 = ttk.Label(frame1, textvariable=s) # StringVarの指定
+    label1.grid(row=0, column=0) # ラベルの配置
+
+    v = StringVar() # StringVarの作成
+    v.set('< 保存先 >') # ラベルに値をセット
+
+    label2 = ttk.Label(frame3, textvariable=v) # StringVarの指定
+    label2.grid(row=0, column=0) # ラベルの配置
+
 
     # 参照ファイルパス表示ラベルの作成
-    file1 = StringVar()
-    file1_entry = ttk.Entry(frame1, textvariable=file1, width=60)
-    file1_entry.grid()
+    file1 = StringVar() # StringVarの作成
+    file1_entry = ttk.Entry(frame1, textvariable=file1, width=60) # StringVarの指定とラベルの幅指定
+    file1_entry.grid() # ラベルの配置
 
     # 参照ファイルパス表示ラベル2の作成
-    file2 = StringVar()
-    file2_entry = ttk.Entry(frame1, textvariable=file2, width=60)
-    file2_entry.grid()
+    file2 = StringVar() # StringVarの作成
+    file2_entry = ttk.Entry(frame3, textvariable=file2, width=60) # StringVarの指定とラベルの幅指定
+    file2_entry.grid() # ラベルの配置
+
+
 
     # Frame2の作成
-    frame2 = ttk.Frame(root, padding=(0,5))
-    frame2.grid(row=1)
+    frame2 = ttk.Frame(root, padding=10) # widgetをグループ化
+    frame2.grid(row=2) # 配置指定
 
     # 開始ボタンの作成
-    button2 = ttk.Button(frame2, text='開始', command=button2_clicked)
-    button2.pack(side=LEFT)
+    button2 = ttk.Button(frame2, text='開始', command=button2_clicked) # ボタン処理
+    button2.pack(side=LEFT) # 左つめする
 
     # 一時停止ボタンの作成
-    button5 = ttk.Button(frame2, text='一時停止')
-    button5.pack(side=LEFT)
+    button5 = ttk.Button(frame2, text='一時停止') # ボタン処理
+    button5.pack(side=LEFT) # 左つめする
 
     # キャンセルボタンの作成
-    button6 = ttk.Button(frame2, text='キャンセル')
-    button6.pack(side=LEFT)
+    button6 = ttk.Button(frame2, text='キャンセル') # ボタン処理
+    button6.pack(side=LEFT) # 左つめする
 
     # 終了ボタンの作成
-    button3 = ttk.Button(frame2, text='終了', command=button4_clicked)
-    button3.pack(side=LEFT)
+    button3 = ttk.Button(frame2, text='終了', command=button4_clicked) # ボタン処理
+    button3.pack(side=LEFT) # 左つめする
 
     root.mainloop() # 実行内容の処理の終了位置
