@@ -34,15 +34,10 @@ def button2_clicked(): # button2_clickedの関数を定義
     + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
     sss = r"" + sss + "" # row文字列にして代入
     fff = r"" + fff + "" # row文字列にして代入
-<<<<<<< HEAD
+
     translate(sss, fff) # copyXMLのtlanslate関数を実行
 
-if __name__ == '__main__':
-=======
-    translate(sss, fff) # copyXMLfileのtranslate関数を実行
-
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
->>>>>>> 0bd918819aea1a3689a9358d4aad1f368015d6ac
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
     root.title('抽出プログラム') # ウインドウのタイトル

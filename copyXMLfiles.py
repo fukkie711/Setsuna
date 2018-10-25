@@ -12,7 +12,7 @@ import os # osモジュール読み込み
 import codecs # codecsモジュールの読み込み
 # sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
 
-def translate(x,y):
+def translate(x,y): # tlanslate関数の宣言
 
     # drive = r"C:\Users\T15015\PycharmProjects\test_area\drive"
     drive = x
@@ -30,10 +30,10 @@ def translate(x,y):
     print("-*-*-*-*-*-operation_start-*-*-*-*-*-\n")
 
     for x in path_list: # 拡張子.xml格納リストを網羅表示
-        fromdir = drive + '\\' + x # 操作対象絶対パス
+        fromdir = drive + '\\' + x # 変数fromdir::操作対象絶対パス
         print("変換対象：：" + fromdir) # ↑の表示(確認)
-        y = os.path.basename(fromdir) # 操作対象のファイル名取得
-        todir = save + '\\' + y # 保存先ディレクトリの絶対パス
+        y = os.path.basename(fromdir) # 変数y::操作対象のファイル名取得
+        todir = save + '\\' + y # 変数todir::保存先ディレクトリの絶対パス
         print("保存先：：" + todir) # ↑の表示(確認)
         # ↓ 変換&新規出力
         ff = codecs.open(fromdir, 'r', encoding='euc-jp') # 元ファイルを読み込み
