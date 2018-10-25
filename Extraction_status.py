@@ -27,7 +27,7 @@ def extraction(read_xml_dir, write_csv_dir):
         fromdir_β = read_xml_dir + '//' + xx # 抽出対象絶対パス
         print("抽出対象：：" + fromdir_β)
         xx_name = os.path.basename(fromdir_β) # 抽出対象ファイル名前取得
-        todir_β
+        todir_β = write_csv_dir + '//' + disc_csv #
 # 単体テスト用コード＊＋＊＋＊＋＊＋＊＋＊＋＊
 drive =  r"C:\Users\T15015\PycharmProjects\test_area\β_test\β_drive" # テスト用参照先
 save = r"C:\Users\T15015\PycharmProjects\test_area\β_test\β_save" # テスト用保存先
