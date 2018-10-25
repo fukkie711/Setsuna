@@ -36,18 +36,16 @@ def translate(x,y): # tlanslate関数の宣言
         todir = save + '\\' + y # 変数todir::保存先ディレクトリの絶対パス
         print("保存先：：" + todir) # ↑の表示(確認)
         # ↓ 変換&新規出力
-        ff = codecs.open(fromdir, 'r', encoding='shift-jis') # 元ファイルを読み込み
+        ff = codecs.open(fromdir, 'r', encoding='euc-jp') # 元ファイルを読み込み
         fout_utf = open(todir, 'w', encoding='utf-8') # UTFでの新ファイルを新規作成
         for row in ff: # 元ファイルから１行ずつ読みだして
             fout_utf.write(row) # コピー先新ファイルに書き出す
 
         ff.close() # ffを閉じる
         fout_utf.close() # fout_utfを閉じる
-        count = count + 1
-        # print(str(count) + "/" + str(list_max) + "変換終了") # 残数表示
-        progress = (count / list_max) * 100
-        print(str(round(progress, 1)) + "%完了")
-        print(progress) # 百分率表示
+        count = count + 1 # カウントアップ
+        progress = round((count / list_max) * 100, 1) # 変数progress:進捗割合
+        print(str(progress) + "%完了") # 小数点第一位で切り捨て
 
     print("\n-*-*-*-*-*-operation_end-*-*-*-*-*-")
 # * + * + * + * + * + * + * + * + * + * +
