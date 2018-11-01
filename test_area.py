@@ -5,15 +5,15 @@
 
 
 
-list_max = [0,0.153445,0.3065754,0.46545,0.60456,0.75456,0.9564,1]
-max_max = len(list_max)
-count = 0
+drive =  r"C:\Users\T15015\PycharmProjects\test_area\β_test\β_drive"
 
-print("残り" + str(max_max))
+text = "I am boned my sord"
 
-for x in list_max:
-    now = x
-    print(now)
-    # print(str(count) + "/" + str(max_max) + "変換終了")
-    progress = now *100
-    print(str(round(progress,1)) + "%完了")
+# find :: 検索対象の文字列.find(検索する文字列)
+# 見つかった場合は文字列の開始位置を返す
+# 見つからなかった場合は-1を返す
+index = text.find("sord")
+if index != -1:
+    print ("found at," + str(index))
+else:
+    print "not found"
