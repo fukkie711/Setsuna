@@ -9,6 +9,7 @@ import sys # sysモジュール読み込み
 import glob # globモジュール読み込み
 import os # osモジュール読み込み
 import codecs # codecsモジュールの読み込み
+from xml.etree.ElementTree import *
 # sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
 
 # 機能β実装関数extractionの宣言＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊
@@ -28,9 +29,20 @@ def extraction(read_xml_dir, write_csv_dir):
         print("抽出対象：：" + fromdir_β)
         xx_name = os.path.basename(fromdir_β) # 抽出対象ファイル名前取得
         todir_β = write_csv_dir + '//' + disc_csv #
+        print("保存対象：：" + todir_β) # 保存対象絶対パス
+        # 変換&抽出フェイズ
+        open_xml =
+
+# replaceXXコードについて
+# ElementTreeライブラリを使い、要素の中身を抜き取る（スライスを使わないので処理が軽い）
+# ただし、elementtreeライブラリはxmlファイルの宣言文を読み込めない問題があるので
+# open段階でのreplace構文を使い宣言文のみを空白に置き開ける
+# そのコードをcopyXMLfileに入れるかExtraction_statusに入れるかは要検討
+
 # 単体テスト用コード＊＋＊＋＊＋＊＋＊＋＊＋＊
 drive =  r"C:\Users\T15015\PycharmProjects\test_area\β_test\β_drive" # テスト用参照先
 save = r"C:\Users\T15015\PycharmProjects\test_area\β_test\β_save" # テスト用保存先
 extraction(drive, save) # テスト用実行ファイル
+
 
 # * + * + * + * + * + * + * + * + * + * +
