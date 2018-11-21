@@ -41,6 +41,8 @@ def translate(x,y): # tlanslate関数の宣言
         for row in ff: # 元ファイルから１行ずつ読みだして
             # 宣言文(一行目)を空白に置き換えるコード
             row = row.replace('<?xml version="1.0" encoding="EUC-JP"?>', '')
+            row = row.replace('<jp:total-pages>', '<:total-pages>')
+            row = row.replace('</jp:total-pages>', '</:total-pages>')
             fout_utf.write(row) # コピー先新ファイルに書き出す
         ff.close() # ffを閉じる
         fout_utf.close() # fout_utfを閉じる
