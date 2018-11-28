@@ -16,10 +16,10 @@ from tkinter import ttk # ttkモジュール読み込み
 
 root = Tk()
 q = 0
-for q in range(10000):
+for q in range(100):
 
     frame = ttk.Frame()
-    pb = ttk.Progressbar(frame, length=300, mode='determinate', value=q, maximum=10000)
+    pb = ttk.Progressbar(frame, length=300, mode='determinate', value=q, maximum=100)
     frame.pack()
     pb.pack()
     #pb.start(100)

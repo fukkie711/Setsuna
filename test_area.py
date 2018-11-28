@@ -29,7 +29,7 @@ print("７．発明の名称：：" + str(elem.findtext('.//invention-title'))) 
 print("８．ＩＰＣ分類：：" + str(elem.findtext('.//classification-ipc/main-clsf'))) # 国際特許分類(IPC)
 print("９．請求項の数：：" + str(elem.findtext('.//number-of-claims'))) # 請求項の数
 print("10．全頁数　：：" + str(elem.findtext('.//jp:total-pages'))) # 全頁数
-print("11-1．出願人名称１：：" + str(elem.findtext('.//parties/jp:applicants-agents-article/jp:applicants-agents sequence="1"/applicant sequence="1"/addressbook lang="ja"/name')))
+print("11-1．出願人名称１：：" + str(elem.findall('parties/jp:applicants-agents-article/jp:applicants-agents sequence="1"/applicant sequence="1"/addressbook lang="ja"/name')))
 # print("12-1．出願人居所１：：" + str(elem.findtext('.//parties/jjapplicants-agents-article/jjapplicants-agents/applicant sequence/addressbook/address/text')))
 print("11-2．出願人名称２：：" + str(elem.findtext('')))
 print("12-2．出願人居所２：：" + str(elem.findtext('')))

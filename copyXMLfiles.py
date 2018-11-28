@@ -55,7 +55,7 @@ def translate(x,y): # tlanslate関数の宣言
         count = count + 1 # カウントアップ
         progress = round((count / list_max) * 100, 1) # 変数progress:進捗割合
         print(str(progress) + "%完了") # 小数点第一位で切り捨て
-
+        return progress
     print("\n-*-*-*-*-*-operation_end-*-*-*-*-*-")
 # * + * + * + * + * + * + * + * + * + * +
 
