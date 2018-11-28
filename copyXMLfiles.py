@@ -40,9 +40,15 @@ def translate(x,y): # tlanslate関数の宣言
         fout_utf = open(todir, 'w', encoding='utf-8') # UTFでの新ファイルを新規作成
         for row in ff: # 元ファイルから１行ずつ読みだして
             # 宣言文(一行目)を空白に置き換えるコード
-            row = row.replace('<?xml version="1.0" encoding="EUC-JP"?>', '')
-            row = row.replace('<jp:total-pages>', '<:total-pages>')
-            row = row.replace('</jp:total-pages>', '</:total-pages>')
+            row = row.replace('<?xml version="1.0" encoding="EUC-JP"?>', '') # 一行目
+            row = row.replace('<?xml-stylesheet type="text/xsl" href="../../../../../XSL/gat-a.xsl"?>', '') # 二行目
+            row = row.replace('<!DOCTYPE jp-official-gazette PUBLIC "-//JPO//DTD PUBLISHED PATENT/UTILITY MODEL APPLICATION 1.0//EN" "../../../../../DTD/gat-a.dtd">', '') # 三行目
+            # row = row.replace('<jp-official-gazette kind-of-jp="A" kind-of-st16="A" lang="ja" dtd-version="1.0" country="JP" xmlns:jp="http://www.jpo.go.jp"><bibliographic-data lang="ja" country="JP">', '') # 四行目
+            #row = row.replace('jjapplicants-agents sequence="1"', 'jjapplicants-agents1')
+            #row = row.replace('/jjapplicants-agents', '/jjapplicants-agents1')
+            #row = row.replace('applicant sequence="1"', 'applicant1')
+            #row = row.replace('/applicant', '/applicant1')
+            #row = row.replace('addressbook lang="ja"', 'addressbook')
             fout_utf.write(row) # コピー先新ファイルに書き出す
         ff.close() # ffを閉じる
         fout_utf.close() # fout_utfを閉じる
