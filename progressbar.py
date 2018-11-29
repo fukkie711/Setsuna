@@ -22,6 +22,6 @@ for q in range(10000):
     pb = ttk.Progressbar(frame, length=300, mode='determinate', value=q, maximum=10000)
     frame.pack()
     pb.pack()
-    #pb.start(100)
+    pb.start(100)
 
 root.mainloop()
