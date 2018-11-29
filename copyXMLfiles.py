@@ -53,8 +53,9 @@ def translate(x,y): # tlanslate関数の宣言
         ff.close() # ffを閉じる
         fout_utf.close() # fout_utfを閉じる
         count = count + 1 # カウントアップ
-        progress = round((count / list_max) * 100, 1) # 変数progress:進捗割合
+        progress = round((count / list_max) * 100, 1) # 変数progress:進捗割合 # ローカル変数
         print(str(progress) + "%完了") # 小数点第一位で切り捨て
+        judge = 0 # 終了判断フラグ　１で終了 # ローカル変数
         return progress
     print("\n-*-*-*-*-*-operation_end-*-*-*-*-*-")
 # * + * + * + * + * + * + * + * + * + * +
