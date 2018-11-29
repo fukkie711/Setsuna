@@ -1,12 +1,12 @@
-mport sys # sysモジュール読み込み
+import sys # sysモジュール読み込み
 import glob # globモジュール読み込み
 import os # osモジュール読み込み
 import codecs # codecsモジュールの読み込み
 
-# drive = r"C:\Users\T15015\PycharmProjects\test_area\drive"
+# drive = r"C:\Users\T15015\PycharmProjects\test_area\test_area\save"
 drive = x
 print(drive)
-# save = r"C:\Users\T15015\PycharmProjects\test_area\save"
+# save = r"C:\Users\T15015\PycharmProjects\test_area\test_area\save"
 save = y
 print(save + "\n")
 
@@ -22,4 +22,3 @@ for i in list_max:
     print(str(progress) + "%完了") # 小数点第一位で切り捨て
     judge = 0 # 終了判断フラグ　１で終了 # ローカル変数
     return progress
-    

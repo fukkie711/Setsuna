@@ -33,9 +33,11 @@ def button2_clicked(): # button2_clickedの関数を定義
     sss = r"" + sss + "" # row文字列にして代入
     fff = r"" + fff + "" # row文字列にして代入
     translate(sss, fff) # copyXMLのtlanslate関数を実行
-    messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + sss
-    + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
-
+    while judge == 0:
+        messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + sss
+        + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
+        pbbar(progress)
+    messagebox.showinfo('FileReference Tool', u'抽出完了') # 終了メッセージ
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
