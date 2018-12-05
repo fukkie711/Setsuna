@@ -30,18 +30,19 @@ def button4_clicked(): # button4_clickedの関数を定義
 def button2_clicked(): # button2_clickedの関数を定義
     sss = file1.get() # 参照先ディレクトリの絶対パス
     fff = file2.get() # 保存先ディレクトリの絶対パス
-    messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + sss
-    + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
     sss = r"" + sss + "" # row文字列にして代入
     fff = r"" + fff + "" # row文字列にして代入
-
     translate(sss, fff) # copyXMLのtlanslate関数を実行
-
+    while judge == 0:
+        messagebox.showinfo('FileReference Tool', u'参照ファイルは↓↓\n' + sss
+        + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
+        pbbar(progress)
+    messagebox.showinfo('FileReference Tool', u'抽出完了') # 終了メッセージ
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
     root.title('抽出プログラム') # ウインドウのタイトル
-    root.geometry("550x400+400+200") # ウインドウのサイズ
+    root.geometry("550x200+400+200") # ウインドウのサイズ
 
     # Frame1の作成
     frame1 = ttk.Frame(root, padding=10) # windowの枠組み
