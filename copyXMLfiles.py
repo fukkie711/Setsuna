@@ -41,8 +41,8 @@ def translate(x,y): # tlanslate関数の宣言
         for row in ff: # 元ファイルから１行ずつ読みだして
             # 宣言文(一行目)を空白に置き換えるコード
             row = row.replace('<?xml version="1.0" encoding="EUC-JP"?>', '') # 一行目
-            row = row.replace('<?xml-stylesheet type="text/xsl" href="../../../../../XSL/gat-a.xsl"?>', '') # 二行目
-            row = row.replace('<!DOCTYPE jp-official-gazette PUBLIC "-//JPO//DTD PUBLISHED PATENT/UTILITY MODEL APPLICATION 1.0//EN" "../../../../../DTD/gat-a.dtd">', '') # 三行目
+            ##row = row.replace('<?xml-stylesheet type="text/xsl" href="../../../../../XSL/gat-a.xsl"?>', '') # 二行目
+            ##row = row.replace('<!DOCTYPE jp-official-gazette PUBLIC "-//JPO//DTD PUBLISHED PATENT/UTILITY MODEL APPLICATION 1.0//EN" "../../../../../DTD/gat-a.dtd">', '') # 三行目
             # row = row.replace('<jp-official-gazette kind-of-jp="A" kind-of-st16="A" lang="ja" dtd-version="1.0" country="JP" xmlns:jp="http://www.jpo.go.jp"><bibliographic-data lang="ja" country="JP">', '') # 四行目
             #row = row.replace('jjapplicants-agents sequence="1"', 'jjapplicants-agents1')
             #row = row.replace('/jjapplicants-agents', '/jjapplicants-agents1')
@@ -56,7 +56,7 @@ def translate(x,y): # tlanslate関数の宣言
         progress = round((count / list_max) * 100, 1) # 変数progress:進捗割合 # ローカル変数
         print(str(progress) + "%完了") # 小数点第一位で切り捨て
         judge = 0 # 終了判断フラグ　１で終了 # ローカル変数
-        return progress
+
     print("\n-*-*-*-*-*-operation_end-*-*-*-*-*-")
 # * + * + * + * + * + * + * + * + * + * +
 
