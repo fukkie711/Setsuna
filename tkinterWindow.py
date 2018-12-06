@@ -45,7 +45,7 @@ if __name__ == '__main__': # 該当のスクリプトファイルがコマンド
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
     root.title('抽出プログラム') # ウインドウのタイトル
-    root.geometry("550x200+400+700") # ウインドウのサイズ
+    root.geometry("550x200+450+250") # ウインドウのサイズ
 
     # Frame1の作成
     frame1 = ttk.Frame(root, padding=10) # windowの枠組み
