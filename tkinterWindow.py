@@ -41,6 +41,16 @@ def start_b_clicked(): # start_b_clickedの関数を定義
     messagebox.showinfo('Filereference_b Tool', u'参照ファイルは↓↓\n' + sss
     + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
 
+    # プログレスバーの作成
+    progress_bar = ttk.Progressbar(
+        frameP,
+        orient=HORIZONTAL,
+        length=400,
+        mode='indeterminate')
+    progress_bar.configure(maximum=100, value=0)
+    progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
+    progress_bar.start(100)
+
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
@@ -95,16 +105,6 @@ if __name__ == '__main__': # 該当のスクリプトファイルがコマンド
     file2 = StringVar() # StringVarの作成
     file2_entry = ttk.Entry(frame3, textvariable=file2, width=60) # StringVarの指定とラベルの幅指定
     file2_entry.grid() # ラベルの配置
-
-    # プログレスバーの作成
-    progress_bar = ttk.Progressbar(
-        frameP,
-        orient=HORIZONTAL,
-        length=400,
-        mode='indeterminate')
-    progress_bar.configure(maximum=100, value=0)
-    progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
-    progress_bar.start(100)
 
     # 開始ボタンの作成
     start_b = ttk.Button(frame2, text='開始', command = start_b_clicked) # ボタン処理
