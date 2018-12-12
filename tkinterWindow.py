@@ -5,7 +5,6 @@ from tkinter import filedialog # filedialogモジュール読み込み
 from tkinter import messagebox # messageboxモジュール読み込み
 from copyXMLfiles import translate # translate関数を読み込み
 from tkinter.constants import *
-from tkinter import tix
 
 # 参照ボタンのイベント
 # reference_bクリック時の処理
