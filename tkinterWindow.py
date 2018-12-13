@@ -5,8 +5,7 @@ from tkinter import filedialog # filedialogモジュール読み込み
 from tkinter import messagebox # messageboxモジュール読み込み
 #from copyXMLfiles import translate # translate関数を読み込み
 from tkinter.constants import *
-from Function import create_xml_list
-from Execute import translate_exe
+from Function import create_xml_list, Function_A, Function_B
 
 # [宣言部]
 
@@ -50,7 +49,8 @@ def start_b_clicked(): # start_b_clickedの関数を定義
     # エンコード&情報抽出、進捗割合変数演算部
     while complete_file <= list_max - 1: # list_max以下であればループ
         ope_file = path_list[complete_file] # 次の演算予定のファイルアドレスが格納されているリスト番号を読み出し
-        translate_exe(sss, ope_file, fff) # Executeのtlanslate_exe関数を実行
+        absolute = Function_A(sss, ope_file, fff)
+        Function_B(fff, absolute)
         complete_file = complete_file + 1
         progress = round((complete_file / list_max) * 100, 1)
         print(str(progress) + "完了") # テスト用コード

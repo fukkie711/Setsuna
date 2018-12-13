@@ -21,7 +21,9 @@ from Function import Function_A, Function_B
 # [メインコード]
 def translate_exe(drive, drive_add, save_add): # translate_exeの開始 # drive_add::演算する.xml # save_add::保存先のディレクトリ
     todir = ""
-    Function_A(drive, drive_add, save_add) # ＥＵＣ－ＪＰへのエンコードを行う。
-    Function_B(todir) # 情報の抜き取りを行い、CSVに書き出す。読み込み先も保存先も同じなので引数は１つ # todir ：： エンコード後の新xmlの絶対パス
+    to_dir = Function_A(drive, drive_add, save_add) # ＥＵＣ－ＪＰへのエンコードを行う。
+    print(to_dir)
+    print(save_add)
+    Function_B(save_add, todir) # 情報の抜き取りを行い、CSVに書き出す。読み込み先も保存先も同じなので引数は１つ # todir ：： エンコード後の新xmlの絶対パス
     return
 # ＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊＋＊
