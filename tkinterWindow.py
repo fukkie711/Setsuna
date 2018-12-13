@@ -50,11 +50,14 @@ def start_b_clicked(): # start_b_clickedの関数を定義
     while complete_file <= list_max - 1: # list_max以下であればループ
         ope_file = path_list[complete_file] # 次の演算予定のファイルアドレスが格納されているリスト番号を読み出し
         absolute = Function_A(sss, ope_file, fff)
-        Function_B(fff, absolute)
+        # Function_B(fff, absolute)
         complete_file = complete_file + 1
         progress = round((complete_file / list_max) * 100, 1)
         print(str(progress) + "完了") # テスト用コード
-        # pb_bar(progress) # 上コードで返されたprogressを読み込みプログレスバー表示
+        progress_bar = ttk.Progressbar(frameP, orient=HORIZONTAL, length=400, mode='determinate')
+        progress_bar.configure(maximum=100, value=progress)
+        progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
+
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
