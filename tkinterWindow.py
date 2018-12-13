@@ -3,8 +3,13 @@ from tkinter import * # *モジュール読み
 from tkinter import ttk # ttkモジュール読み込み
 from tkinter import filedialog # filedialogモジュール読み込み
 from tkinter import messagebox # messageboxモジュール読み込み
-from copyXMLfiles import translate # translate関数を読み込み
+#from copyXMLfiles import translate # translate関数を読み込み
 from tkinter.constants import *
+from Function import create_xml_list
+from Execute import translate_exe
+
+# [宣言部]
+
 
 # 参照ボタンのイベント
 # reference_bクリック時の処理
@@ -32,24 +37,24 @@ def end_b_clicked(): # end_b_clickedの関数を定義
 
 # start_bクリック時の処理 (開始ボタン)
 def start_b_clicked(): # start_b_clickedの関数を定義
-    sss = file1.get() # 参照先ディレクトリの絶対パス
-    fff = file2.get() # 保存先ディレクトリの絶対パス
-    sss = r"" + sss + "" # row文字列にして代入
-    fff = r"" + fff + "" # row文字列にして代入
-    translate(sss, fff) # copyXMLのtlanslate関数を実行
-    messagebox.showinfo('Filereference_b Tool', u'参照ファイルは↓↓\n' + sss
-    + u'\n\n参照ファイルは↓↓\n' + fff) # 確認ダイアログ
-
-    # プログレスバーの作成
-    progress_bar = ttk.Progressbar(
-        frameP,
-        orient=HORIZONTAL,
-        length=400,
-        mode='indeterminate')
-    progress_bar.configure(maximum=100, value=0)
-    progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
-    progress_bar.start(100)
-
+    sss = r"" + file1.get() + ""# 参照先ディレクトリの絶対パス
+    fff = r"" + file2.get() + ""# 保存先ディレクトリの絶対パス
+    complete_file = 0
+    list_max = 0
+    path_list = []
+    # csv作成モジュール部
+    os.chdir(fff)
+    # csv_add = open('data.csv', 'ab') #ファイルが無ければ作る、の'a'
+    # xmlアドレス抽出部
+    path_list, list_max = create_xml_list(sss) # 対象ドライブからxmlファイルの絶対パスを再帰的検索する関数。リストと総数を返す。
+    # エンコード&情報抽出、進捗割合変数演算部
+    while complete_file <= list_max - 1: # list_max以下であればループ
+        ope_file = path_list[complete_file] # 次の演算予定のファイルアドレスが格納されているリスト番号を読み出し
+        translate_exe(sss, ope_file, fff) # Executeのtlanslate_exe関数を実行
+        complete_file = complete_file + 1
+        progress = round((complete_file / list_max) * 100, 1)
+        print(str(progress) + "完了") # テスト用コード
+        # pb_bar(progress) # 上コードで返されたprogressを読み込みプログレスバー表示
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置

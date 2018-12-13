@@ -1,6 +1,10 @@
-from tkinter import *
-from tkinter import ttk
-
+import os,sys,tkinter,time # os,sys,tkinterモジュール読み込み
+from tkinter import * # *モジュール読み
+from tkinter import ttk # ttkモジュール読み込み
+from tkinter import filedialog # filedialogモジュール読み込み
+from tkinter import messagebox # messageboxモジュール読み込み
+from copyXMLfiles import translate # translate関数を読み込み
+from tkinter.constants import *
 root = Tk()
 
 root.title('Progress')
@@ -26,3 +30,8 @@ for pbval in range(10000):
 pb.grid(row=0, column=0, sticky=(N,E,S,W))
 
 root.mainloop()
+
+def pb_bar(x, y):
+    progress_bar = ttk.Progressbar(frameP,orient=HORIZONTAL,length=400,mode='determinate')
+    progress_bar.configure(maximum=100, value = x )
+    progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
