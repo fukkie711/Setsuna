@@ -58,6 +58,8 @@ def start_b_clicked(): # start_b_clickedの関数を定義
         progress_bar = ttk.Progressbar(frameP, orient=HORIZONTAL, length=400, mode='determinate')
         progress_bar.configure(maximum=100, value=progress)
         progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
+        show = tkinter.Label(text=progress)
+        show.place(x=471, y=132)
 
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成

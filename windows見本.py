@@ -66,3 +66,11 @@ if __name__ == '__main__':
     #button3.place(x=50, y=50)
 
     root.mainloop()
+
+
+# プログレスバーの作成
+def pb_bar():
+progress_bar = ttk.Progressbar(frameP,orient=HORIZONTAL,length=400,mode='indeterminate')
+progress_bar.configure(maximum=100, value=0)
+progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
+progress_bar.start(100)
