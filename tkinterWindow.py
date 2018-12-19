@@ -43,17 +43,18 @@ def start_b_clicked(): # start_b_clickedの関数を定義
     path_list = []
     # csv作成モジュール部
     os.chdir(fff)
-    # csv_add = open('data.csv', 'ab') #ファイルが無ければ作る、の'a'
+    csv_add = open('data.csv', 'ab') #ファイルが無ければ作る、の'a'
     # xmlアドレス抽出部
     path_list, list_max = create_xml_list(sss) # 対象ドライブからxmlファイルの絶対パスを再帰的検索する関数。リストと総数を返す。
     # エンコード&情報抽出、進捗割合変数演算部
+
     while complete_file <= list_max - 1: # list_max以下であればループ
         ope_file = path_list[complete_file] # 次の演算予定のファイルアドレスが格納されているリスト番号を読み出し
         absolute = Function_A(sss, ope_file, fff)
-        # Function_B(fff, absolute)
+        Function_B(fff, absolute)
         complete_file = complete_file + 1
         progress = round((complete_file / list_max) * 100, 1)
-        print(str(progress) + "完了") # テスト用コード
+        print(str(progress) + "%完了") # テスト用コード
         progress_bar = ttk.Progressbar(frameP, orient=HORIZONTAL, length=400, mode='determinate')
         progress_bar.configure(maximum=100, value=progress)
         progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
