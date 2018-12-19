@@ -41,7 +41,7 @@ def Function_B(dir, absolute):
     tree = parse(target)
     elem = tree.getroot()
     judge_status = str(elem.findtext('.//publication-reference/document-id/kind'))
-    print(judge_status)
+    # print(judge_status)
     # * * *
     if judge_status == "公開特許公報(A)" or judge_status == "公表特許公報(A)": # 公開&公表を篩にかける # Trueで実行
         # csvファイル作成
@@ -49,25 +49,25 @@ def Function_B(dir, absolute):
         kk = open(csv_name + "発行ディスク.csv", 'a') # なければ作る
         writer = csv.writer(kk, lineterminator='\n')
         # 格納
-        print("１．発行国　：：" + str(elem.findtext('.//publication-reference/document-id/country'))) # 発行国
+        #print("１．発行国　：：" + str(elem.findtext('.//publication-reference/document-id/country'))) # 発行国
         list_in.append(str(elem.findtext('.//publication-reference/document-id/country'))) # 発行国
-        print("２．公報種別：：" + str(elem.findtext('.//publication-reference/document-id/kind'))) # 公報種別
+        #print("２．公報種別：：" + str(elem.findtext('.//publication-reference/document-id/kind'))) # 公報種別
         list_in.append(str(elem.findtext('.//publication-reference/document-id/kind'))) # 公報種別
-        print("３．公開日　：：" + str(elem.findtext('.//publication-reference/document-id/date'))) # 公開日
+        #print("３．公開日　：：" + str(elem.findtext('.//publication-reference/document-id/date'))) # 公開日
         list_in.append(str(elem.findtext('.//publication-reference/document-id/date'))) # 公開日
-        print("４．出願日　：：" + str(elem.findtext('.//application-reference/document-id/date'))) # 出願日
+        #print("４．出願日　：：" + str(elem.findtext('.//application-reference/document-id/date'))) # 出願日
         list_in.append(str(elem.findtext('.//application-reference/document-id/date'))) # 出願日
-        print("５．公開番号：：" + str(elem.findtext('.//publication-reference/document-id/doc-number'))) # 公開番号
+        #print("５．公開番号：：" + str(elem.findtext('.//publication-reference/document-id/doc-number'))) # 公開番号
         list_in.append(str(elem.findtext('.//publication-reference/document-id/doc-number'))) # 公開番号
-        print("６．出願番号：：" + str(elem.findtext('.//application-reference/document-id/doc-number'))) # 出願番号
+        #print("６．出願番号：：" + str(elem.findtext('.//application-reference/document-id/doc-number'))) # 出願番号
         list_in.append(str(elem.findtext('.//application-reference/document-id/doc-number'))) # 出願番号
-        print("７．発明の名称：：" + str(elem.findtext('.//invention-title'))) # 発明の名称
+        #print("７．発明の名称：：" + str(elem.findtext('.//invention-title'))) # 発明の名称
         list_in.append(str(elem.findtext('.//invention-title'))) # 発明の名称
-        print("８．ＩＰＣ分類：：" + str(elem.findtext('.//classification-ipc/main-clsf'))) # 国際特許分類(IPC)
+        #print("８．ＩＰＣ分類：：" + str(elem.findtext('.//classification-ipc/main-clsf'))) # 国際特許分類(IPC)
         list_in.append(str(elem.findtext('.//classification-ipc/main-clsf'))) # 国際特許分類(IPC)
-        print("９．請求項の数：：" + str(elem.findtext('.//number-of-claims'))) # 請求項の数
+        #print("９．請求項の数：：" + str(elem.findtext('.//number-of-claims'))) # 請求項の数
         list_in.append(str(elem.findtext('.//number-of-claims'))) # 請求項の数
-        print("10．全頁数　：：" + str(elem.findtext('.//jp:total-pages', namespaces={'jp':'http://www.jpo.go.jp'}))) # 全頁数
+        #print("10．全頁数　：：" + str(elem.findtext('.//jp:total-pages', namespaces={'jp':'http://www.jpo.go.jp'}))) # 全頁数
         list_in.append(str(elem.findtext('.//jp:total-pages', namespaces={'jp':'http://www.jpo.go.jp'}))) # 全頁数
         list_in.append(str(elem.findtext('.//parties/jp:applicants-agents-article/jp:applicants-agents[@sequence="1"]/applicant[@sequence="1"]/addressbook[@lang="ja"]/registered-number', namespaces={'jp':'http://www.jpo.go.jp'})))
         list_in.append(str(elem.findtext('.//parties/jp:applicants-agents-article/jp:applicants-agents[@sequence="1"]/applicant[@sequence="1"]/addressbook[@lang="ja"]/name', namespaces={'jp':'http://www.jpo.go.jp'})))
