@@ -1,4 +1,4 @@
-import os,sys,tkinter,time # os,sys,tkinterモジュール読み込み
+import os,sys,tkinter,time, csv # os,sys,tkinterモジュール読み込み
 from tkinter import * # *モジュール読み
 from tkinter import ttk # ttkモジュール読み込み
 from tkinter import filedialog # filedialogモジュール読み込み
@@ -8,7 +8,7 @@ from tkinter.constants import *
 from Function import create_xml_list, Function_A, Function_B
 
 # [宣言部]
-
+list_csv = []
 
 # 参照ボタンのイベント
 # reference_bクリック時の処理
@@ -41,9 +41,6 @@ def start_b_clicked(): # start_b_clickedの関数を定義
     complete_file = 0
     list_max = 0
     path_list = []
-    # csv作成モジュール部
-    os.chdir(fff)
-    csv_add = open('data.csv', 'ab') #ファイルが無ければ作る、の'a'
     # xmlアドレス抽出部
     path_list, list_max = create_xml_list(sss) # 対象ドライブからxmlファイルの絶対パスを再帰的検索する関数。リストと総数を返す。
     # エンコード&情報抽出、進捗割合変数演算部
