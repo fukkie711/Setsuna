@@ -8,6 +8,7 @@ from tkinter.constants import *
 from Function import create_xml_list, Function_A, Function_B
 import wx
 from time import *
+import random
 
 # [宣言部]
 list_csv = []
@@ -37,13 +38,6 @@ def end_b_clicked(): # end_b_clickedの関数を定義
     else:
         pass # 何もしない
 
-def foo():
-    global progress
-    progre = progress
-    progress_bar.configure(value=progre)
-    show.configure(text=str(progre))
-    root.after(100, foo)
-
 # start_bクリック時の処理 (開始ボタン)
 def start_b_clicked(): # start_b_clickedの関数を定義
     sss = r"" + file1.get() + ""# 参照先ディレクトリの絶対パス
@@ -54,7 +48,6 @@ def start_b_clicked(): # start_b_clickedの関数を定義
     # xmlアドレス抽出部
     path_list, list_max = create_xml_list(sss) # 対象ドライブからxmlファイルの絶対パスを再帰的検索する関数。リストと総数を返す。
     print("総数：：" + str(list_max))
-    foo(progress)
     # エンコード&情報抽出、進捗割合変数演算部
     while complete_file <= list_max - 1: # list_max以下であればループ
         ope_file = path_list[complete_file] # 次の演算予定のファイルアドレスが格納されているリスト番号を読み出し
@@ -63,6 +56,10 @@ def start_b_clicked(): # start_b_clickedの関数を定義
         complete_file = complete_file + 1
         progress = round((complete_file / list_max) * 100, 1)
         print(str(progress) + "%完了") # テスト用コード
+        progress_bar.configure(value=progress)
+        show.configure(text= (str(progress) + "%完了"))
+        progress_bar.update()
+        show.update()
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
@@ -78,8 +75,13 @@ if __name__ == '__main__': # 該当のスクリプトファイルがコマンド
 
     frameP= ttk.Frame(root, padding=10)
     frameP.grid(sticky=(W,E))
-    frameP.columnconfigure(0, weight=1);
-    frameP.rowconfigure(0, weight=1);
+    frameP.columnconfigure(0, weight=1)
+    frameP.rowconfigure(0, weight=1)
+
+    framePB = ttk.Frame(root, padding = 10)
+    framePB.grid(sticky = (W,E))
+    framePB.columnconfigure(0, weight = 1)
+    framePB.rowconfigure(0, weight = 1)
 
     # プログレスバー(determinate_mode)
     progress_bar = ttk.Progressbar(
@@ -93,6 +95,17 @@ if __name__ == '__main__': # 該当のスクリプトファイルがコマンド
     # ラベル
     show = tkinter.Label(text="0%完了")
     show.place(x=471, y=132)
+
+    # StringVar
+    #pv = StringVar()
+    #pv.set('０％完了')
+
+    #label_pb = ttk.Label(root,
+    #                    textvariable = pv,
+    #                    font = ("メイリオ", 15, "bold",)
+    #                    )
+    #label_pb.place(x = 450, y = 132)
+
 
     # Frame2の作成
     frame2 = ttk.Frame(root, padding=10) # widgetをグループ化
