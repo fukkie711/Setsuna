@@ -6,9 +6,12 @@ from tkinter import messagebox # messageboxモジュール読み込み
 #from copyXMLfiles import translate # translate関数を読み込み
 from tkinter.constants import *
 from Function import create_xml_list, Function_A, Function_B
+import wx
+from time import *
 
 # [宣言部]
 list_csv = []
+progress = 0
 
 # 参照ボタンのイベント
 # reference_bクリック時の処理
@@ -17,8 +20,8 @@ filepath2 = "" # filepath2変数の初期化
 def reference_b_clicked(): # reference_b_clickedの関数を定義
     fTyp = [("","*")] # 表示オプション
     filepath1 = tkinter.filedialog.askdirectory() # directoryを選択する
-    file1.set(filepath1)# filepath1をsetに変換する
-    return filepath1# filepath1に返す
+    file1.set(filepath1) # filepath1をsetに変換する
+    return filepath1 # filepath1に返す
 
 # strage_bクリック時の処理(保存ボタンの挙動)
 def strage_b_clicked(): # strage_b_clickedの関数を定義
@@ -34,6 +37,13 @@ def end_b_clicked(): # end_b_clickedの関数を定義
     else:
         pass # 何もしない
 
+def foo():
+    global progress
+    progre = progress
+    progress_bar.configure(value=progre)
+    show.configure(text=str(progre))
+    root.after(100, foo)
+
 # start_bクリック時の処理 (開始ボタン)
 def start_b_clicked(): # start_b_clickedの関数を定義
     sss = r"" + file1.get() + ""# 参照先ディレクトリの絶対パス
@@ -43,8 +53,9 @@ def start_b_clicked(): # start_b_clickedの関数を定義
     path_list = []
     # xmlアドレス抽出部
     path_list, list_max = create_xml_list(sss) # 対象ドライブからxmlファイルの絶対パスを再帰的検索する関数。リストと総数を返す。
+    print("総数：：" + str(list_max))
+    foo(progress)
     # エンコード&情報抽出、進捗割合変数演算部
-
     while complete_file <= list_max - 1: # list_max以下であればループ
         ope_file = path_list[complete_file] # 次の演算予定のファイルアドレスが格納されているリスト番号を読み出し
         absolute = Function_A(sss, ope_file, fff)
@@ -52,12 +63,6 @@ def start_b_clicked(): # start_b_clickedの関数を定義
         complete_file = complete_file + 1
         progress = round((complete_file / list_max) * 100, 1)
         print(str(progress) + "%完了") # テスト用コード
-        progress_bar = ttk.Progressbar(frameP, orient=HORIZONTAL, length=400, mode='determinate')
-        progress_bar.configure(maximum=100, value=progress)
-        progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
-        show = tkinter.Label(text=progress)
-        show.place(x=471, y=132)
-
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
@@ -75,6 +80,19 @@ if __name__ == '__main__': # 該当のスクリプトファイルがコマンド
     frameP.grid(sticky=(W,E))
     frameP.columnconfigure(0, weight=1);
     frameP.rowconfigure(0, weight=1);
+
+    # プログレスバー(determinate_mode)
+    progress_bar = ttk.Progressbar(
+        frameP,
+        orient=HORIZONTAL,
+        length=400,
+        mode='determinate')
+    progress_bar.configure(maximum=100, value=progress)
+    progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
+
+    # ラベル
+    show = tkinter.Label(text="0%完了")
+    show.place(x=471, y=132)
 
     # Frame2の作成
     frame2 = ttk.Frame(root, padding=10) # widgetをグループ化
@@ -101,7 +119,6 @@ if __name__ == '__main__': # 該当のスクリプトファイルがコマンド
 
     label2 = ttk.Label(frame3, textvariable=v) # StringVarの指定
     label2.grid(row=0, column=0) # ラベルの配置
-
 
     # 参照ファイルパス表示ラベルの作成
     file1 = StringVar() # StringVarの作成
