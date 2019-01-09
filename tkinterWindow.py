@@ -6,7 +6,6 @@ from tkinter import messagebox # messageboxモジュール読み込み
 #from copyXMLfiles import translate # translate関数を読み込み
 from tkinter.constants import *
 from Function import create_xml_list, Function_A, Function_B
-import wx
 from time import *
 import random
 
