@@ -1,5 +1,5 @@
 import os,sys,tkinter,time, csv # os,sys,tkinterモジュール読み込み
-from tkinter import * # *モジュール読み
+from tkinter import * # tkinter全ロード
 from tkinter import ttk # ttkモジュール読み込み
 from tkinter import filedialog # filedialogモジュール読み込み
 from tkinter import messagebox # messageboxモジュール読み込み
@@ -92,70 +92,58 @@ if __name__ == '__main__': # 該当のスクリプトファイルがコマンド
     progress_bar.configure(maximum=100, value=progress)
     progress_bar.grid(row=1, column=0, sticky=(N,E,S,W))
 
-    # ラベル
+    # 進捗割合ラベル
     show = tkinter.Label(text="0%完了")
     show.place(x=471, y=132)
-
-    # StringVar
-    #pv = StringVar()
-    #pv.set('０％完了')
-
-    #label_pb = ttk.Label(root,
-    #                    textvariable = pv,
-    #                    font = ("メイリオ", 15, "bold",)
-    #                    )
-    #label_pb.place(x = 450, y = 132)
-
 
     # Frame2の作成
     frame2 = ttk.Frame(root, padding=10) # widgetをグループ化
     frame2.grid(sticky=(N,W,S,E)) # 配置指定
 
-    # 参照ボタンの作成
+    # 《参照》選択ボタンの作成
     reference_b = ttk.Button(root, text=u'参照', command=reference_b_clicked) # ボタン処理
     #reference_b.grid(row=0, column=3) # ボタンの配置
     reference_b.place(x=449, y=27)
-    # 保存ボタンの作成
+
+    # 《保存》選択ボタンの作成
     strage_b = ttk.Button(root, text=u'保存', command = strage_b_clicked) # ボタン処理
     strage_b.place(x=449, y=87) # ボタンの配置
 
-    # ラベルの作成
-    # 「ファイル」ラベルの作成
+    # 《参照先》ラベルの作成
     s = StringVar() # StringVarの作成
     s.set('< 参照先 >') # ラベルに値をセット
-
     label1 = ttk.Label(frame1, textvariable=s) # StringVarの指定
     label1.grid(row=0, column=0) # ラベルの配置
 
+    # 《保存先》ラベルの作成
     v = StringVar() # StringVarの作成
     v.set('< 保存先 >') # ラベルに値をセット
-
     label2 = ttk.Label(frame3, textvariable=v) # StringVarの指定
     label2.grid(row=0, column=0) # ラベルの配置
 
-    # 参照ファイルパス表示ラベルの作成
+    # 《参照ファイルパス》ラベルの作成
     file1 = StringVar() # StringVarの作成
     file1_entry = ttk.Entry(frame1, textvariable=file1, width=60) # StringVarの指定とラベルの幅指定
     file1_entry.grid() # ラベルの配置
 
-    # 参照ファイルパス表示ラベル2の作成
+    # 《保存ファイルパス》ラベルの作成
     file2 = StringVar() # StringVarの作成
     file2_entry = ttk.Entry(frame3, textvariable=file2, width=60) # StringVarの指定とラベルの幅指定
     file2_entry.grid() # ラベルの配置
 
-    # 開始ボタンの作成
+    # 《開始》ボタンの作成
     start_b = ttk.Button(frame2, text='開始', command = start_b_clicked) # ボタン処理
     start_b.pack(side=LEFT) # 左つめする
 
-    # 一時停止ボタンの作成
+    # 《一時停止》ボタンの作成
     stop_b = ttk.Button(frame2, text='一時停止') # ボタン処理
     stop_b.pack(side=LEFT) # 左つめする
 
-    # キャンセルボタンの作成
+    # 《キャンセル》ボタンの作成
     cancel_b = ttk.Button(frame2, text='キャンセル') # ボタン処理
     cancel_b.pack(side=LEFT) # 左つめする
 
-    # 終了ボタンの作成
+    # 《終了》ボタンの作成
     end_b = ttk.Button(frame2, text='終了', command=end_b_clicked) # ボタン処理
     end_b.pack(side=LEFT) # 左つめする
 

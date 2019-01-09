@@ -1,4 +1,15 @@
+# [ファイル名]Funton.py
+# [モジュール数]3
+# [カテゴリ]critical
 
+# [概要]
+# [機能].xmlの抽出、UTF-8へのエンコード、情報の検索&抽出、
+
+# []
+# []
+# [改善点]
+# []
+# []
 import sys # sysモジュール読み込み
 import glob # globモジュール読み込み
 import os # osモジュール読み込み
