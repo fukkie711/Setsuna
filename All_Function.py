@@ -1,7 +1,7 @@
 # [ファイル名]Funton.py
 # [モジュール数]3
 # [カテゴリ]critical
-# [概要]
+# [概要]全て情報を抜き出す
 # [機能].xmlの抽出、UTF-8へのエンコード、情報の検索&抽出、
 
 # [Editor log]
@@ -13,13 +13,10 @@ import os # osモジュール読み込み
 import codecs # codecsモジュールの読み込み
 import csv # csvモジュール読み込み
 from tkinter import * # *モジュール読み
-#from tkinter import ttk # ttkモジュール読み込み
-#from tkinter import filedialog # filedialogモジュール読み込み
-#from tkinter import messagebox # messageboxモジュール読み込み
 from xml.etree.ElementTree import *
 # sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
 
-def create_xml_list(xxx):
+def Function_A(xxx):
     # [機能]複製
     # 指定されたディレクトリ以下から再帰的に.xmlを指定ディレクトリに複製する
     drive = xxx # 引数xxx（＝参照ディレクトリ絶対パスのrow文字列）を変数driveに代入
@@ -28,7 +25,7 @@ def create_xml_list(xxx):
     list_max = len(path_list) # 変換するxmlファイルの総数を取得
     return path_list, list_max # リスト[path_list]と総数list_maxを返す
 
-def Function_A(drive, drive_add, save_add): # 参照ディレクトリ絶対パス、操作XMLファイル名、保存ディレクトリ絶対パス
+def Function_B(drive, drive_add, save_add): # 参照ディレクトリ絶対パス、操作XMLファイル名、保存ディレクトリ絶対パス
     # [機能]変換
     # EUC-JPで記述されたＸＭＬファイルをUTF-8にエンコード、保存先ディレクトリに書き出す
     fromdir = drive + '\\' + drive_add # 変数fromdir::参照ディレクトリ絶対パス
@@ -43,22 +40,23 @@ def Function_A(drive, drive_add, save_add): # 参照ディレクトリ絶対パ�
     verUTF8.close() # verUTF8を閉じる
     return todir # 保存先ディレクトリ絶対パスを返す
 
-def Function_B(dir, absolute):
-    # 準備
-    list_in = []
+def Function_C(dir, absolute):
+    # [機能]抽出
+    # 必要な情報のみ抜き出して、新規作成したcsvファイルに書き出す
+    list_in = [] # リストの初期化
     csv_name = "" # CSVファイル名文字列準備
-    dir_add = dir #
+    dir_add = dir # 代入
     os.chdir(dir_add) # 読み込み先に移動
-    target = os.path.basename(absolute)
-    tree = parse(target)
-    elem = tree.getroot()
-    judge_status = str(elem.findtext('.//publication-reference/document-id/kind'))
+    target = os.path.basename(absolute) # ファイル名を取得
+    tree = parse(target) # パースコード１
+    elem = tree.getroot() # パースコード２
+    judge_status = str(elem.findtext('.//publication-reference/document-id/kind')) # 種別情報を抜き取り
     # * * *
     if judge_status == "公開特許公報(A)" or judge_status == "公表特許公報(A)": # 公開&公表を篩にかける # Trueで実行
         # csvファイル作成
-        csv_name = str(elem.findtext('.//publication-reference/document-id/date'))
-        kk = open(csv_name + "発行ディスク.csv", 'a') # なければ作る
-        writer = csv.writer(kk, lineterminator='\n')
+        csv_name = str(elem.findtext('.//publication-reference/document-id/date')) # 発行年月の情報を抜き取り
+        kk = open(csv_name + "発行ディスク.csv", 'a') # なければ新規作成
+        writer = csv.writer(kk, lineterminator='\n') # 改行しながらオーバーライト
 
         # 格納
         list_in.append(str(elem.findtext('.//publication-reference/document-id/country'))) # 発行国
