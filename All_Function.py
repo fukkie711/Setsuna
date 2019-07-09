@@ -25,6 +25,14 @@ def Function_A(xxx):
     list_max = len(path_list) # 変換するxmlファイルの総数を取得
     return path_list, list_max # リスト[path_list]と総数list_maxを返す
 
+def Function_A_dash(xxx):
+    # [機能]複製
+    # 指定されたディレクトリ以下から再帰的に.pdfを指定ディレクトリに複製する
+    drive = xxx # 引数xxx（＝参照ディレクトリ絶対パスのrow文字列）を変数driveに代入
+    os.chdir(drive) # カレントディレクトリをdriveに移動
+    path_list = glob.glob('**/*.pdf', recursive=True) # 拡張子.xmlを網羅,リスト(path_list)に格納
+    #list_max = len(path_list) # 変換するxmlファイルの総数を取得
+
 def Function_B(drive, drive_add, save_add): # 参照ディレクトリ絶対パス、操作XMLファイル名、保存ディレクトリ絶対パス
     # [機能]変換
     # EUC-JPで記述されたＸＭＬファイルをUTF-8にエンコード、保存先ディレクトリに書き出す

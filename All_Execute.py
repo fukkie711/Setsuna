@@ -5,6 +5,7 @@ from tkinter import filedialog # filedialogモジュール読み込み
 from tkinter import messagebox # messageboxモジュール読み込み
 from tkinter.constants import *
 from All_Function import Function_A, Function_B, Function_C # 各機能を読み込み
+from All_Function import Function_A_dash # 追加機能読み込み
 from time import *
 import random
 
@@ -48,6 +49,7 @@ def start_b_clicked(): # start_b_clickedの関数を定義
     # xmlアドレス抽出部
     path_list, list_max = Function_A(sss) # 対象ドライブからxmlファイルの絶対パスを再帰的検索する関数。リストと総数を返す。
     # print("総数：：" + str(list_max)) # テスト用コード
+    Function_A_dash(sss)
 
     # エンコード&情報抽出、進捗割合変数演算部
     while complete_file <= list_max - 1: # list_max以下であればループ
