@@ -14,6 +14,9 @@ import codecs # codecsモジュールの読み込み
 import csv # csvモジュール読み込み
 from tkinter import * # *モジュール読み
 from xml.etree.ElementTree import *
+## 2019/07/09 モジュールの追加
+from pathlib import Path
+import shutil
 # sys.stdout = codecs.getwriter('utf_8')(sys.stdout)
 
 def Function_A(xxx):
@@ -25,13 +28,16 @@ def Function_A(xxx):
     list_max = len(path_list) # 変換するxmlファイルの総数を取得
     return path_list, list_max # リスト[path_list]と総数list_maxを返す
 
-def Function_A_dash(xxx):
+# 2019/07/09 Function_A_dashをついか。福澤研究室A1のPCで
+#def Function_A_dash(drive, drive_add, save_add):
+def Function_A_dash(xxx, drive_add, save_add):
     # [機能]複製
     # 指定されたディレクトリ以下から再帰的に.pdfを指定ディレクトリに複製する
-    drive = xxx # 引数xxx（＝参照ディレクトリ絶対パスのrow文字列）を変数driveに代入
-    os.chdir(drive) # カレントディレクトリをdriveに移動
-    path_list = glob.glob('**/*.pdf', recursive=True) # 拡張子.xmlを網羅,リスト(path_list)に格納
-    #list_max = len(path_list) # 変換するxmlファイルの総数を取得
+#    p = Path(drive)
+    p = Path(xxx)
+    pdf_path = p.glob('**/*.pdf')
+    for i in pdf_path:
+        shutil.copy2(i, save_add + '/' + i.name)
 
 def Function_B(drive, drive_add, save_add): # 参照ディレクトリ絶対パス、操作XMLファイル名、保存ディレクトリ絶対パス
     # [機能]変換
