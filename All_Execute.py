@@ -48,6 +48,7 @@ def start_b_clicked(): # start_b_clickedの関数を定義
 
     # xmlアドレス抽出部
     path_list, list_max = Function_A(sss) # 対象ドライブからxmlファイルの絶対パスを再帰的検索する関数。リストと総数を返す。
+    Function_A_dash(sss, fff)
     # print("総数：：" + str(list_max)) # テスト用コード
 
     # エンコード&情報抽出、進捗割合変数演算部
@@ -63,7 +64,6 @@ def start_b_clicked(): # start_b_clickedの関数を定義
         progress_bar.update() # プログレスバーを更新
         show.update() # 進捗割合テキストを更新
 
-    Function_A_dash(sss, ope_file, fff)
 if __name__ == '__main__': # 該当のスクリプトファイルがコマンドラインから実行された場合
     # rootの作成
     root = Tk() # 実行内容の処理の開始位置
