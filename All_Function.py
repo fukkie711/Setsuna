@@ -33,13 +33,13 @@ def Function_A(xxx):
 def Function_A_dash(xxx, save_add):
     # [機能]複製
     # 指定されたディレクトリ以下から再帰的に.pdfを指定ディレクトリに複製する
-#    p = Path(drive)
+    #    p = Path(drive)
     p = Path(xxx)
-    pdf_path = p.glob('**/*.pdf')
+    pdf_path = p.iglob('**/*.pdf')
     #save_path = os.path.basename(pdf_path)
     for i in pdf_path:
         shutil.copy2(i, save_add + '/' + i.name)
-    #shutil.copy2(pdf_path, save_add + '/' + save_path)
+        #shutil.copy2(pdf_path, save_add + '/' + save_path)
 
 def Function_B(drive, drive_add, save_add): # 参照ディレクトリ絶対パス、操作XMLファイル名、保存ディレクトリ絶対パス
     # [機能]変換
