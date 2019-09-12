@@ -8,7 +8,7 @@ from All_Function import Function_A, Function_B, Function_C # 各機能を読み
 from All_Function import Function_A_dash # 追加機能読み込み
 from time import *
 import random
-
+#小野のテストコメント
 # [宣言部]
 list_csv = [] # リストの初期化
 progress = 0 # 変数の宣言、カウント０
