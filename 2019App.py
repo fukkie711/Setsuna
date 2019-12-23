@@ -28,8 +28,8 @@ progresss = 0
 #
 def changePage(page):
     # Pageを上位層にする
-    page.tkraise()
-
+    ページ。tkraise（）
+###
 
 # rootフレームの設定
 root = tk.Tk()
