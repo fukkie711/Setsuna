@@ -25,7 +25,7 @@ progress = 0 # 変数の宣言、カウント０
 progresss = 0
 ###関数定義###
 
-#
+###
 def changePage(page):
     # Pageを上位層にする
     ページ。tkraise（）
